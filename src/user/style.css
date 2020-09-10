@@ -1,0 +1,14 @@
+.am-list-item .am-input-label {
+   
+    text-align: right;
+    
+}
+
+.am-list-item .am-input-control input {
+   
+    width: 100%;
+    padding-right: 5px;
+}
+element.style {
+    margin-right: 0px;
+}

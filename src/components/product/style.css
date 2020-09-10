@@ -1,0 +1,30 @@
+.multi-foo-menu {
+    position: absolute;
+    z-index: 80 !important;
+    width: 100%;
+    /* direction: rtl; */
+    text-align: right;
+  }
+  
+  .multi-menu-active .multi-top-nav-bar{
+    z-index: 80;
+  }
+  
+  .multi-top-nav-bar {
+    position: relative;
+    background-color: #fff;
+    color: #000;
+  }
+  .am-navbar-title {
+    color: #000!important;
+  }
+  .menu-mask {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 79;
+  }
