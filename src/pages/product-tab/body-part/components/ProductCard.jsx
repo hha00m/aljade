@@ -48,8 +48,8 @@ const ProductCard = (props) => {
                 ]}
             >
                 <View style={{ display: 'flex', padding: '10px 0', direction: "rtl" }}>
-                    <img style={{ width: '90px', marginLeft: '5px', borderRadius: '5px' }}
-                        src={`https://albarqexpress.com/store/img/product/${obj.img}`} alt="" />
+                    <img style={{ width: '90px',height:'150px', marginLeft: '5px', borderRadius: '5px' }}
+                        src={`https://aljade.com/store/img/product/${obj.img}`} alt="" />
                     <View style={{ lineHeight: 1, width: "100%" }} className="flex-container">
                         <View style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.name}
                             <Badge text="شعار"

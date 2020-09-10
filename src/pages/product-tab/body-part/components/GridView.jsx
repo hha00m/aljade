@@ -53,7 +53,7 @@ const GridView = (props) => {
             onClick={() => {
               props.selectedProductMethod(dataItem);
               props.activeModelMethod(props.modelList[11])}}>
-            <img src={`https://albarqexpress.com/store/img/product/${dataItem.img}`}
+            <img src={`https://aljade.com/store/img/product/${dataItem.img}`}
               style={{ width: '70px', height: '100px' }} alt="" />
             <View style={{ color: '#888', fontSize: '14px', marginTop: '0px' }}>
               <span>{dataItem.name}</span>

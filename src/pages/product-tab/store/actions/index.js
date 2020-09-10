@@ -14,7 +14,6 @@ export function fetchingProductsMethod(
 ) {
   return function (dispatch) {
     let url = `${API}/_products.php?username=${username}&password=${password}&limit=${limit}&page=${pageIndex}`;
-    //  let url = `http://localhost:8050/api/products?username=07822816693&password=12345678&limit=10&page=${pageIndex}`;
     if (search) url += `&search=${search}`;
     // if (flag) url += `&flagList=${flag}`;
     // if (category) url += `&category=${category}`;
@@ -26,7 +25,7 @@ export function fetchingProductsMethod(
     let data2 = localStorage.getItem(url);
 
     switch (data2) {
-      case data2.length<1: {
+      case null: {
         axios
           .get(url)
           .then((response) => {
