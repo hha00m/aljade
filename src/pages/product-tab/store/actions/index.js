@@ -26,7 +26,7 @@ export function fetchingProductsMethod(
     let data2 = localStorage.getItem(url);
 
     switch (data2) {
-      case null: {
+      case data2.length<1: {
         axios
           .get(url)
           .then((response) => {
