@@ -23,7 +23,7 @@ export function fetchingProductsMethod(
       Toast.offline("لايوجد انترنيت حاول مجددا", 2, null, false);
     }
     let data2 = localStorage.getItem(url);
-
+     
     switch (data2) {
       case null: {
         axios
