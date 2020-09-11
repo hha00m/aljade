@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import './style.css'
 import { useState } from "react";
 import { activeModelMethod, } from '../../../models/store/actions/index';
-import {selectedProductMethod} from '../../store/actions/index'
+import {activeProductMethod} from '../../../models/store/actions/index'
 let pageIndex = 1;
 let _data = [];
 
@@ -46,12 +46,14 @@ const GridView = (props) => {
     <View>
       <Grid data={_data}
         columnNum={3}
-        itemStyle={{ height: '150px', background: 'rgba(0,0,0,.05)' }}
-        square={false} className="not-square-grid"
+        itemStyle={{ height: '200px', background: 'rgba(0,0,0,.05)' }}
+        square={false}
+      //  isCarousel 
+        className="not-square-grid"
         renderItem={dataItem => (
           <View style={{ padding: '0.5px' }}
             onClick={() => {
-              props.selectedProductMethod(dataItem);
+              props.activeProductMethod(dataItem);
               props.activeModelMethod(props.modelList[11])}}>
             <img src={`https://aljade.com/store/img/product/${dataItem.img}`}
               style={{ width: '70px', height: '100px' }} alt="" />
@@ -92,7 +94,7 @@ function matchDispatchToProps(dispatch) {
     {
       fetchingProducts: fetchingProductsMethod,
       activeModelMethod: activeModelMethod,
-      selectedProductMethod:selectedProductMethod
+      activeProductMethod:activeProductMethod
     }, dispatch);
 }
 
