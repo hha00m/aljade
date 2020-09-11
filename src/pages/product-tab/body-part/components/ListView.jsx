@@ -53,7 +53,7 @@ class Body extends React.Component {
   
   componentDidUpdate() {
     if (this.state.search !== this.props.searchForInfo.data) {
-      pageIndex = 0;
+      pageIndex = 1;
       this._data = [];
       this.entered=true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
@@ -67,6 +67,12 @@ class Body extends React.Component {
   onRefresh = () => {
     if (navigator.onLine) {
       localStorage.clear();
+      pageIndex = 1;
+      this._data = [];
+      this.entered=true;
+      this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
+      this.setState({ ...this.state, search: this.props.searchForInfo.data });
+      
     } else {
       Toast.offline('لايوجد انترنيت حاول مجددا', 2, null, false);
     }
