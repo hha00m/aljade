@@ -48,11 +48,11 @@ const ProductCard = (props) => {
                 ]}
             >
                 <View style={{ display: 'flex', padding: '10px 0', direction: "rtl" }}>
-                    <img style={{ width: '90px',height:'120px', marginLeft: '5px', borderRadius: '5px' }}
+                    <img style={{ width: '90px', marginLeft: '5px', borderRadius: '5px' }}
                         src={`https://aljade.com/store/img/product/${obj.img}`} alt="" />
                     <View style={{ lineHeight: 1, width: "100%" }} className="flex-container">
                         <View style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.name}
-                            <Badge text="شعار"
+                            {/* <Badge text="شعار"
                                 style={{
                                     marginRight: '5px',
                                     padding: '0px  6px',
@@ -61,7 +61,8 @@ const ProductCard = (props) => {
                                     color: '#fff',
                                     border: '1px solid #f19736',
                                 }}
-                            /></View>
+                            /> */}
+                        </View>
                         <View style={{ marginBottom: '8px' }}>
                             <span style={{ fontSize: '15px', color: '#FF6E27' }}>{obj.store_name}
                             </span>
@@ -73,12 +74,14 @@ const ProductCard = (props) => {
                             >شراء</Button>
                         </Flex>
                         {obj.attribute ?
-                            <View>
+                            <View >
                                 <span>{obj.attribute[0].name}:</span>
                                 {
                                     (obj.attribute).map((v, i) => {
                                         return (
-                                            <Flex wrap="wrap" key={i} className="tag-container" >
+                                            <Flex wrap="wrap" key={i} className="tag-container" style={{
+                                                height: ' 60px'
+                                            }}>
                                                 {
                                                     (v.config).map((option, index) =>
                                                         <Tag key={index}

@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
-import { View, NoticeBar, WhiteSpace } from "antd-mobile";
+import { View, NoticeBar } from "antd-mobile";
 import './sticky.css';
 import { connect } from 'react-redux';
 import NetworkDetector from '../../../cores/NetworkDetector';
