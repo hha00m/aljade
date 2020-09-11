@@ -26,15 +26,17 @@ class ViewType extends React.Component {
         return (
             <View>
                 {this.props.showStyleBar.show ?
-                    <WingBlank><SegmentedControl
-                        values={[<BarsOutlined style={{ fontSize: '22px' }} />, <AppstoreOutlined style={{ fontSize: '22px' }} />]}
-                        onChange={this.onChange}
-                        onValueChange={this.onValueChange}
-                    />
+                    <WingBlank>
+                        <WhiteSpace />
+                        <SegmentedControl
+                            values={[<BarsOutlined style={{ fontSize: '22px' }} />, <AppstoreOutlined style={{ fontSize: '22px' }} />]}
+                            onChange={this.onChange}
+                            onValueChange={this.onValueChange}
+                        />
                     </WingBlank>
                     : ''}
 
-                <WhiteSpace size='lg' />
+                <WhiteSpace />
                 {this.state.grid ? <Grid /> : <List />}
             </View>
         );

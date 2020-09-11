@@ -25,7 +25,8 @@ class Body extends React.Component {
     };
   }
   _data = [];
-  _onDataArrived(newData) {
+   entered=true;
+  _onDataArrived(newData,enter) {
 
     if (this._data.length !== newData.length) {
       const hei =
@@ -38,17 +39,29 @@ class Body extends React.Component {
         height: hei
 
       });
+      return true;
+
+    }
+    if(enter) {
+      this.setState({
+        ...this.state,
+        isLoading: false
+      });
+      return false;
     }
   }
+  
   componentDidUpdate() {
     if (this.state.search !== this.props.searchForInfo.data) {
       pageIndex = 0;
       this._data = [];
+      this.entered=true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
       this.setState({ ...this.state, search: this.props.searchForInfo.data });
     }
     if (this.props.products.fetched && !this.props.products.fetching) {
-      this._onDataArrived(this.props.products.products);
+    if(this.entered===undefined) this.entered=true;
+      this.entered= this._onDataArrived(this.props.products.products,this.entered);
     }
   }
   onRefresh = () => {
@@ -93,7 +106,7 @@ class Body extends React.Component {
         dataSource={this.state.dataSource}
         renderFooter={() => (
           <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
-            {this.state.isLoading ? <ActivityIndicator size="large" /> : "Loaded"}
+            {this.state.isLoading ? <ActivityIndicator size="large" /> : "تم التحميل"}
           </View>
         )}
         renderRow={row}

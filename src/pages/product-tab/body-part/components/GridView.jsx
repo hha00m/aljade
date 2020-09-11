@@ -15,7 +15,7 @@ let _data = [];
 const GridView = (props) => {
   const [loading, setLoading] = useState(true);
   const _onDataArrived = (newData) => {
-    if (_data.length !== newData.length) {
+    if (_data.length !== newData.length&&newData.length>0) {
       _data = newData;
     }
   }
@@ -66,7 +66,7 @@ const GridView = (props) => {
         <View
           onClick={onEndReached}
           style={{ color: 'blue', textAlign: 'center', fontSize: '18px' }}
-        >تحميل مزيد</View> :
+        >تحميل المزيد</View> :
         <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
           <ActivityIndicator size="large" />
         </View>

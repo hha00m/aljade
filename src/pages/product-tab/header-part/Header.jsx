@@ -12,7 +12,6 @@ const Header = (props) => {
             <NetworkDetector />
             <NavBar />
             {props.searchBarState.show ? <SearchBar /> : ''}
-
             <WhiteSpace />
             <NoticeBar mode="closable"  marqueeProps={{ loop: true, style: { padding: '0 7.5px', direction: "rtl" } }}>
             مرحبا بكم   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   تطبيق المندوبه  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   ادارة المبيعات    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   التسوق والربح &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
