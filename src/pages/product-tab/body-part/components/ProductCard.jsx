@@ -84,12 +84,14 @@ const ProductCard = (props) => {
                                             }}>
                                                 {
                                                     (v.config).map((option, index) =>
-                                                        <Tag key={index}
+                                                       {return option.qty>0? 
+                                                       <Tag key={index}
                                                             selected={(props.activeProduct.options ?
                                                                 props.activeProduct.options.id === option.id : false)
                                                                 && props.activeProduct.product.id === obj.id}
                                                             onChange={() => props.activeProductMethod(obj, option)}
                                                         >{option.value}</Tag>
+                                                        :''}
                                                     )}
                                             </Flex>)
                                     })
