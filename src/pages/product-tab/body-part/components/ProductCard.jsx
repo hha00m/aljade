@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Button, Flex, SwipeAction, Tag, View, Toast } from 'antd-mobile';
+import { Button, Flex, SwipeAction, Tag, View, Toast } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -14,7 +14,8 @@ const ProductCard = (props) => {
     let obj = props.obj;
     let rowID = props.rowID;
 
-    const onPressedButton = (val) => {
+    const onPressedButton = (e, val) => {
+        e.preventDefault();
         if (props.activeProduct.product) {
             if (props.activeProduct.product.id === obj.id) {
                 props.activeModelMethod(val);
@@ -42,13 +43,13 @@ const ProductCard = (props) => {
                 left={[
                     {
                         text: 'أشارة',
-                        onPress: () => { onPressedButton(props.modelList[0]); },
+                        onPress: (e) => { onPressedButton(e, props.modelList[0]); },
                         style: { backgroundColor: '#f96f6d', color: 'white', width: "100px" },
                     },
                 ]}
             >
                 <View style={{ display: 'flex', padding: '10px 0', direction: "rtl" }}>
-                    <img style={{ width: '90px',height:'150px', marginLeft: '5px', borderRadius: '5px' }}
+                    <img style={{ width: '90px', height: '150px', marginLeft: '5px', borderRadius: '5px' }}
                         src={`https://aljade.com/store/img/product/${obj.img}`} alt="" />
                     <View style={{ lineHeight: 1, width: "100%" }} className="flex-container">
                         <View style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.name}
@@ -70,10 +71,10 @@ const ProductCard = (props) => {
                         <Flex justify="between">
                             <span style={{ alignSelf: "flex-end", fontSize: '15px', color: '#000' }} className="inline">{obj.price}</span>
                             <Button type="warning" size="small" inline className="inline"
-                                onClick={() => { onPressedButton(props.modelList[1]) }}
+                                onClick={(e) => { onPressedButton(e, props.modelList[1]) }}
                             >شراء</Button>
                         </Flex>
-                        {obj.attribute ?
+                        {obj.attribute.length > 0 ?
                             <View >
                                 <span>{obj.attribute[0].name}:</span>
                                 {
@@ -83,15 +84,16 @@ const ProductCard = (props) => {
                                                 height: ' 60px'
                                             }}>
                                                 {
-                                                    (v.config).map((option, index) =>
-                                                       {return option.qty>0? 
-                                                       <Tag key={index}
-                                                            selected={(props.activeProduct.options ?
-                                                                props.activeProduct.options.id === option.id : false)
-                                                                && props.activeProduct.product.id === obj.id}
-                                                            onChange={() => props.activeProductMethod(obj, option)}
-                                                        >{option.value}</Tag>
-                                                        :''}
+                                                    (v.config).map((option, index) => {
+                                                        return option.qty > 0 ?
+                                                            <Tag key={index}
+                                                                selected={(props.activeProduct.options ?
+                                                                    props.activeProduct.options.id === option.id : false)
+                                                                    && props.activeProduct.product.id === obj.id}
+                                                                onChange={() => props.activeProductMethod(obj, option)}
+                                                            >{option.value}</Tag>
+                                                            : ''
+                                                    }
                                                     )}
                                             </Flex>)
                                     })

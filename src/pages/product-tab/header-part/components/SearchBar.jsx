@@ -9,6 +9,7 @@ class Search extends React.Component {
 
  
   onSubmit= (value) => {
+    // e.preventDefault();
     this.props.searchForInfoMethod(value);
   };
   clear = () => {
