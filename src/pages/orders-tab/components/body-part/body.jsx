@@ -17,7 +17,7 @@ const OrdersTab = (props) => {
                 {
                     props.orders.orders.map((order, i) => (
                         <Accordion.Panel key={i} header={<Flex
-                            style={{ direction: 'rtl', height: '50px' }}>
+                            style={{ direction: 'rtl', height: '30px' }}>
                             <Flex.Item style={{ flex: '2', fontSize: '14px' }}>{order.order_no} </Flex.Item>
                             <Flex.Item style={{ flex: '3', fontSize: '14px' }}>{order.customer_name} </Flex.Item>
                             <Flex.Item style={{ flex: '2', fontSize: '14px' }}>{order.total_price}</Flex.Item>
@@ -27,77 +27,77 @@ const OrdersTab = (props) => {
                             <List className='my-list' style={{marginRight:'8px',backgroundColor:'#F7E1DD'}}>
                             <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>أسم الصفحة </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.store_name}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>رقم المشتري </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.client_phone}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>أسم المشتري </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.customer_name}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>المحافظة</Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.city}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>المدينة</Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.town}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>باقي العنوان </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.address}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>ملاحظة </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.note}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>حلة الطلب </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.status_name}</Flex.Item>
                                     </Flex>
                                 </Item> 
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>سعر الطلب </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.total_price}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>خصم </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.discount}</Flex.Item>
                                     </Flex>
                                 </Item>
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>المندوب </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.staff_name}</Flex.Item>
                                     </Flex>
@@ -105,7 +105,7 @@ const OrdersTab = (props) => {
 
                                 <Item>
                                     <Flex
-                                        style={{ direction: 'rtl', height: '50px' }}>
+                                        style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>ربح المندوب من الطلب </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.mandop_earnings}</Flex.Item>
                                     </Flex>

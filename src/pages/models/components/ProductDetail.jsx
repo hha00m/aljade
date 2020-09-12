@@ -2,29 +2,18 @@ import React from 'react';
 import { Flex, Tag, View, WhiteSpace, Button, Modal, List, Toast } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { closeModelMethod, activeProductMethod } from '../../models/store/actions/index';
+import { closeModelMethod, activeProductMethod,activeModelMethod } from '../../models/store/actions/index';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import './productDetails.css'
 const Item = List.Item;
 
 const MyAccountModel = (props) => {
+
     const onPressedButton = (val) => {
         if (props.activeProduct.product) {
-            if (props.activeProduct.product.id === props.activeProduct.id) {
-                props.activeModelMethod(val);
-            } else {
-                Toast.fail('رجاء اختر خيار من نفس المنتج', 2, null, false);
-            }
-        } else {
-            if (props.activeProduct.product.attribute.length < 1) {
-                props.activeProductMethod(props.activeProduct.product);
                 props.activeModelMethod(val);
             } else
                 Toast.info('رجاء اختر خيار قبل الشراء', 2, null, false);
-
-        }
-
-
     }
     return (
         <Modal
@@ -63,10 +52,9 @@ const MyAccountModel = (props) => {
                                                 {
                                                     (v.config).map((option, index) =>
                                                         <Tag key={index}
-                                                        // selected={(props.activeProduct.options ?
-                                                        //     props.activeProduct.options.id === option.id : false)
-                                                        //     && props.activeProduct.product.id === props.activeProduct.product.id}
-                                                        // onChange={() => props.activeProductMethod(props.activeProduct.product, option)}
+                                                        selected={(props.activeProduct.options ?
+                                                            props.activeProduct.options.id === option.id : false)}
+                                                        onChange={() => props.activeProductMethod(props.activeProduct.product, option)}
                                                         >{option.value}</Tag>
                                                     )}
                                             </Flex>)
@@ -97,7 +85,8 @@ function matchDispatchToProps(dispatch) {
     return bindActionCreators(
         {
             closeModelMethod: closeModelMethod,
-            activeProductMethod: activeProductMethod
+            activeProductMethod: activeProductMethod,
+            activeModelMethod:activeModelMethod,
         }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(MyAccountModel);

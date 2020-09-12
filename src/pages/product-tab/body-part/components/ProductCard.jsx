@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Button, Flex, SwipeAction, Tag, View, Toast } from 'antd-mobile';
+import {  Button, Flex, SwipeAction, Tag, View, Toast } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
