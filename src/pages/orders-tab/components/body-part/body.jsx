@@ -1,15 +1,24 @@
-import React, { useEffect } from 'react';
-import { Accordion, Flex, WingBlank, List } from 'antd-mobile';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Accordion, Flex, View, WingBlank, List, WhiteSpace } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchingOrdersMethods } from '../../store/actions/index';
 import './components/style.css';
 import Item from 'antd-mobile/lib/popover/Item';
 const OrdersTab = (props) => {
-    useEffect(() => {
-        props.fetchingOrdersMethods(props.user.user.data.username, props.user.user.password)
-   // eslint-disable-next-line
- }, [])
+    let [indexPage, setIndexPage] = useState(1);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => { 
+        props.fetchingOrdersMethods(props.user.user.data.username, props.user.user.password,indexPage,props.orders.orders);
+        setIsLoading(false);
+    }, [indexPage])
+
+
+    const onEndReached = () => {
+        setIsLoading(true);
+        setIndexPage(++indexPage);
+    };
 
     return (
         <WingBlank >
@@ -24,8 +33,8 @@ const OrdersTab = (props) => {
                             <Flex.Item style={{ flex: '3', fontSize: '14px' }}>{order.status_name}</Flex.Item>
                         </Flex>}
                         >
-                            <List className='my-list' style={{marginRight:'8px',backgroundColor:'#F7E1DD'}}>
-                            <Item>
+                            <List className='my-list' style={{ marginRight: '8px', backgroundColor: '#F7E1DD' }}>
+                                <Item>
                                     <Flex
                                         style={{ direction: 'rtl', height: '30px' }}>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>أسم الصفحة </Flex.Item>
@@ -80,7 +89,7 @@ const OrdersTab = (props) => {
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>حلة الطلب </Flex.Item>
                                         <Flex.Item style={{ flex: '5', fontSize: '   16px' }}>{order.status_name}</Flex.Item>
                                     </Flex>
-                                </Item> 
+                                </Item>
                                 <Item>
                                     <Flex
                                         style={{ direction: 'rtl', height: '30px' }}>
@@ -111,13 +120,22 @@ const OrdersTab = (props) => {
                                     </Flex>
                                 </Item>
 
-                                
+
                             </List>
 
                         </Accordion.Panel>
                     ))
                 }
             </Accordion>
+            <WhiteSpace/>
+            {!isLoading ?
+                <View
+                    onClick={()=>onEndReached()}
+                    style={{ color: 'blue', textAlign: 'center', fontSize: '18px' }}
+                >تحميل المزيد</View> :
+                <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" />
+                </View>}
         </WingBlank>
     )
 }
