@@ -9,9 +9,10 @@ const OrdersTab = (props) => {
     let [indexPage, setIndexPage] = useState(1);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => { 
-        props.fetchingOrdersMethods(props.user.user.data.username, props.user.user.password,indexPage,props.orders.orders);
+    useEffect(() => {
+        props.fetchingOrdersMethods(props.user.user.data.username, props.user.user.password, indexPage, props.orders.orders);
         setIsLoading(false);
+        // eslint-disable-next-line
     }, [indexPage])
 
 
@@ -127,10 +128,10 @@ const OrdersTab = (props) => {
                     ))
                 }
             </Accordion>
-            <WhiteSpace/>
+            <WhiteSpace size='xl' />
             {!isLoading ?
                 <View
-                    onClick={()=>onEndReached()}
+                    onClick={() => onEndReached()}
                     style={{ color: 'blue', textAlign: 'center', fontSize: '18px' }}
                 >تحميل المزيد</View> :
                 <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
