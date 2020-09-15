@@ -28,7 +28,7 @@ const BasketCard = (props) => {
                                     <Stepper style={{ Width: '20px' }} showNumber size="small" defaultValue={1} />
                                 </Flex>
                             )
-                        }) : <div>loading</div>
+                        }) : <div>جاري تحميل</div>
 
                     }
                 </div>

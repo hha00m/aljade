@@ -4,7 +4,7 @@ export const activeCityMethod = (city_, cities_) => {
   return {
     type: "SELECTED_CITY",
     payload: {
-      city: city_,
+      city: city_?city_:null,
       cities: cities_,
     },
   };
@@ -13,7 +13,7 @@ export const activeCityMethod = (city_, cities_) => {
 export const activeTownMethod = (town_) => {
   return {
     type: "SELECTED_TOWN",
-    payload: town_,
+    payload: town_?town_:null,
   };
 };
 

@@ -67,12 +67,13 @@ const BasketsTab = (props) => {
                                         },
                                         style: { backgroundColor: '#108ee9', color: 'white' },
 
-                                    }, {
-                                        text: 'عرض',
-                                        onPress: () => props.activeModelMethod(props.modelList[5])
-                                        ,
-                                        style: { backgroundColor: '#525266', color: 'white' },
-                                    },
+                                    }, 
+                                    // {
+                                    //     text: 'عرض',
+                                    //     onPress: () => props.activeModelMethod(props.modelList[5])
+                                    //     ,
+                                    //     style: { backgroundColor: '#525266', color: 'white' },
+                                    // },
 
                                 ]}
                             > <List.Item key={index}

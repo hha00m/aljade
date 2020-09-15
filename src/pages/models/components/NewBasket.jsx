@@ -7,6 +7,7 @@ import { createForm } from 'rc-form';
 import { connect } from 'react-redux';
 import { createNewBasket, closeModelMethod, fetchingBasketsMethod } from './../store/actions';
 import CityModel from './CitiesModels';
+import { activeTownMethod, activeCityMethod } from '../../../store/baskets/actions/index';
 //----------------------------------------------------
 
 
@@ -25,11 +26,22 @@ class NewBasket extends React.Component {
       value['town'] = this.props.activeTown.value;
       if (value.city && value.town && value.phone) {
         this.props.createNewBasket(this.props.user.user.user.data.username, this.props.user.user.user.password, value);
+        this.onCloseLocal();
       }
-
+      this.onCloseLocal();
     });
   }
+  onCloseLocal = () => {
+    this.props.fetchingBasketsMethod(this.props.user.user.user.data.username, this.props.user.user.user.password, true)
+    this.props.activeCityMethod('', this.props.cities);
+    this.props.activeTownMethod('');
+    this.props.form.setFieldsValue({'name' : ''});
+    this.props.form.setFieldsValue({'phone' : ''});
+    this.props.form.setFieldsValue({'note' : ''});
+    this.props.form.setFieldsValue({'address' : ''});    this.props.closeModelMethod(this.props.modelList[2]);
 
+
+  }
   render() {
     const { getFieldProps } = this.props.form;
 
@@ -39,10 +51,7 @@ class NewBasket extends React.Component {
           popup
           closable={true}
           visible={this.props.ActiveModel.model.name === 'AddNewCustomer' && this.props.ActiveModel.action}
-          onClose={() => {
-            this.props.fetchingBasketsMethod(this.props.user.user.user.data.username, this.props.user.user.user.password, true)
-            this.props.closeModelMethod(this.props.modelList[2]);
-          }}
+          onClose={() => this.onCloseLocal()}
           animationType="slide-up"
         >
           <List className="my-list"
@@ -94,6 +103,7 @@ function mapStateToProps(state) {
     modelList: state.modelList,
     ActiveModel: state.ActiveModel,
     user: state.user,
+    cities: state.cities.cities,
 
   }
 
@@ -104,7 +114,9 @@ function matchDispatchToProps(dispatch) {
     {
       createNewBasket: createNewBasket,
       closeModelMethod: closeModelMethod,
-      fetchingBasketsMethod: fetchingBasketsMethod
+      fetchingBasketsMethod: fetchingBasketsMethod,
+      activeCityMethod: activeCityMethod,
+      activeTownMethod: activeTownMethod,
 
     }, dispatch);
 }

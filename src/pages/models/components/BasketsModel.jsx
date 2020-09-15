@@ -94,15 +94,16 @@ class BasketsModel extends React.Component {
                                                 },
                                                 style: { backgroundColor: '#108ee9', color: 'white' },
 
-                                            }, {
-                                                text: 'عرض',
-                                                onPress: () =>{ 
-                                                    this.selectBasket(i);
-                                                    this.props.activeModelMethod(this.props.modelList[5]);
-                                                }
-                                                ,
-                                                style: { backgroundColor: '#525266', color: 'white' },
-                                            },
+                                            }, 
+                                            // {
+                                            //     text: 'عرض',
+                                            //     onPress: () =>{ 
+                                            //         this.selectBasket(i);
+                                            //         this.props.activeModelMethod(this.props.modelList[5]);
+                                            //     }
+                                            //     ,
+                                            //     style: { backgroundColor: '#525266', color: 'white' },
+                                            // },
 
                                         ]}
                                     > <RadioItem key={index}
@@ -110,7 +111,7 @@ class BasketsModel extends React.Component {
                                         disabled={i.status === '2'}
                                     >
                                             <Flex>
-                                                <span style={{ marginLeft: "35px", marginRight: "35px" }}> {i.customer_name} - {i.customer_phone} - {i.city_name} - {i.town_name} </span>
+                                                <span style={{ marginLeft: "35px", marginRight: "35px" }}> {i.customer_name} - {i.customer_phone} - {i.city_name} - {i.town_name}  </span>
                                             </Flex>
                                         </RadioItem>
                                     </SwipeAction>

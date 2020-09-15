@@ -112,10 +112,10 @@ const BasketCard = (props) => {
                                                         ? () => onDeleteItem(value.bi_id)
                                                         : () => Toast.fail('هذه السلة مرسلة بالفعل ولاتستطيع التعديل')}>
                                                         <DeleteOutlined style={{ fontSize: '22px', marginLeft: '10px', marginRight: '10px' }} /></span>
-                                                    <span onClick={props.basketById.basket.status !== '2'
+                                                    {/* <span onClick={props.basketById.basket.status !== '2'
                                                         ? () => onAddItem(value.product_id, value.bi_id)
                                                         : () => Toast.fail('هذه السلة مرسلة بالفعل ولاتستطيع التعديل')}>
-                                                        <PlusCircleOutlined style={{ fontSize: '22px', marginLeft: '10px', marginRight: '10px' }} /></span>
+                                                        <PlusCircleOutlined style={{ fontSize: '22px', marginLeft: '10px', marginRight: '10px' }} /></span> */}
                                                 </View>
                                             </Flex>
                                         </List.Item>

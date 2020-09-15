@@ -24,7 +24,7 @@ const GridView = (props) => {
   const onEndReached = event => {
     setLoading(true);
     ++pageIndex;
-    props.fetchingProducts(props.user.user.user.data.username, props.user.user.user.password, pageIndex, _data);
+    props.fetchingProducts(props.user.user.user.data.username, props.user.user.user.password, props.searchForInfo?props.searchForInfo.data:'', pageIndex, 10, _data, false);
     console.log("reach end", event);
   };
 

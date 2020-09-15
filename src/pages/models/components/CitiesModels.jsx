@@ -48,7 +48,7 @@ class CitiesModel extends React.Component {
 
                     <Picker
                         data={this.props.cities} cols={1}
-                        extra={(this.props.activeCity.label ? this.props.activeCity.label : (this.props.selectedBasket.city_name ? this.props.selectedBasket.city_name : 'أختر محافظة'))}
+                        extra={(this.props.activeCity? this.props.activeCity.label : (this.props.selectedBasket.city_name ? this.props.selectedBasket.city_name : 'أختر محافظة'))}
                         className="forss"
                         onChange={v => this.onChangeCity(v)}
                     >
@@ -66,7 +66,7 @@ class CitiesModel extends React.Component {
                                 value={this.state.search}
                             />}
                         data={townsList}
-                        extra={(this.props.activeTown.label ? this.props.activeTown.label : (this.props.selectedBasket.town_name ? this.props.selectedBasket.town_name : 'أختر منطقة'))}
+                        extra={(this.props.activeTown ? this.props.activeTown.label : (this.props.selectedBasket.town_name ? this.props.selectedBasket.town_name : 'أختر منطقة'))}
                         onChange={v => this.onChangeTown(v)}
                         cols={1} className="forss">
                         <List.Item extra={this.props.activeTown} arrow='empty' >المدينة</List.Item>

@@ -6,7 +6,8 @@ import { fetchingOrdersMethods } from '../../store/actions/index';
 import './components/style.css';
 import Item from 'antd-mobile/lib/popover/Item';
 const OrdersTab = (props) => {
-    let [indexPage, setIndexPage] = useState(1);
+    let [indexPage, setIndexPage] = useState(1
+        );
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
