@@ -1,13 +1,13 @@
 import axios from "axios";
 import { Toast } from "antd-mobile";
-import {API} from '../../../../config'
+import { API } from "../../../../config";
 export function fetchingProductsMethod(
   username,
   password,
-   search = "",
+  search = "",
   // flag = "",
   pageIndex = 1,
-   limit = 20,
+  limit = 20,
   // category = "",
   data = [],
   update = false
@@ -18,19 +18,22 @@ export function fetchingProductsMethod(
     // if (flag) url += `&flagList=${flag}`;
     // if (category) url += `&category=${category}`;
     if (navigator.onLine) {
-      if (update) localStorage.removeItem(url);
+      if (update) localStorage.removeItem(`productsList:${pageIndex}`);
     } else {
       Toast.offline("لايوجد انترنيت حاول مجددا", 2, null, false);
     }
-    let data2 = localStorage.getItem(url);
-     
+    let data2 = localStorage.getItem(`productsList:${pageIndex}`);
+
     switch (data2) {
       case null: {
         axios
           .get(url)
           .then((response) => {
             let obj = response.data.data;
-            localStorage.setItem(url, JSON.stringify(obj));
+            localStorage.setItem(
+              `productsList:${pageIndex}`,
+              JSON.stringify(obj)
+            );
 
             dispatch({
               type: "FETCH_PRODUCTS_FULFILLED",
@@ -57,10 +60,7 @@ export function fetchingProductsMethod(
 
 export function productDetails(user, productId) {
   return function (dispatch) {
-    axios
-      .get
-      `${API}/_product.php?username=${user.username}&password=${user.password}&product=${productId}`
-      ()
+    axios.get`${API}/_product.php?username=${user.username}&password=${user.password}&product=${productId}`()
       .then((response) => {
         dispatch({
           type: "FETCH_PRODUCT_DETAILS_FULFILLED",

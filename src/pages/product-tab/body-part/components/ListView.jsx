@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import ProductCard from './ProductCard';
 let pageIndex = 1;
 
-
 class Body extends React.Component {
   constructor(props) {
     super(props);
@@ -25,8 +24,8 @@ class Body extends React.Component {
     };
   }
   _data = [];
-   entered=true;
-  _onDataArrived(newData,enter) {
+  entered = true;
+  _onDataArrived(newData, enter) {
 
     if (this._data.length !== newData.length) {
       const hei =
@@ -37,12 +36,10 @@ class Body extends React.Component {
         dataSource: this.state.dataSource.cloneWithRows(this._data),
         isLoading: false,
         height: hei
-
       });
       return true;
-
     }
-    if(enter) {
+    if (enter) {
       this.setState({
         ...this.state,
         isLoading: false
@@ -50,29 +47,32 @@ class Body extends React.Component {
       return false;
     }
   }
-  
+
   componentDidUpdate() {
     if (this.state.search !== this.props.searchForInfo.data) {
       pageIndex = 1;
       this._data = [];
-      this.entered=true;
+      this.entered = true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
       this.setState({ ...this.state, search: this.props.searchForInfo.data });
     }
     if (this.props.products.fetched && !this.props.products.fetching) {
-    if(this.entered===undefined) this.entered=true;
-      this.entered= this._onDataArrived(this.props.products.products,this.entered);
+      if (this.entered === undefined) this.entered = true;
+      this.entered = this._onDataArrived(this.props.products.products, this.entered);
     }
   }
   onRefresh = () => {
     if (navigator.onLine) {
-      localStorage.clear();
+
+      // localStorage.clear();
+      for (let i = 1; i <= pageIndex; i++) {
+        localStorage.removeItem(`productsList:${i}`);
+      }
       pageIndex = 1;
       this._data = [];
-      this.entered=true;
+      this.entered = true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
       this.setState({ ...this.state, search: this.props.searchForInfo.data });
-      
     } else {
       Toast.offline('لايوجد انترنيت حاول مجددا', 2, null, false);
     }
@@ -105,7 +105,6 @@ class Body extends React.Component {
         <ProductCard rowID={rowID} obj={rowData} />
       )
     };
-
     return (
       <ListView
         ref={el => (this.lv = el)}
