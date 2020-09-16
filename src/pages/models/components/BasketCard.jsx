@@ -3,7 +3,7 @@ import { Flex, ActivityIndicator, View, Button, InputItem, Modal, List, Toast } 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { FiSend } from 'react-icons/fi';
-import { PlusCircleOutlined, DeleteOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import {  DeleteOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import {
     fetchingBasketByIDMethod, fetchingBasketsMethod, cencelSendBasketToDB, sendBasketToDB, addItemToBasket, closeModelMethod, removeItemFromBasket
 } from './../store/actions/index';
@@ -34,14 +34,14 @@ const BasketCard = (props) => {
         setIsLoading(true);
         props.fetchingBasketByIDMethod(props.user.user.data.username, props.user.user.password, props.basketById.basket.id )
     }
-    const onAddItem = (id, bi_id) => {
-        props.addItemToBasket(
-            props.user.user.data.username, props.user.user.password,
-            id, props.basketById.basket.id, bi_id
-        );
-        onUpdate();
+    // const onAddItem = (id, bi_id) => {
+    //     props.addItemToBasket(
+    //         props.user.user.data.username, props.user.user.password,
+    //         id, props.basketById.basket.id, bi_id
+    //     );
+    //     onUpdate();
+    // }
 
-    }
     const onDeleteItem = (bi_id) => {
         props.removeItemFromBasket(
             props.user.user.data.username, props.user.user.password,
