@@ -1,6 +1,7 @@
 export default function (
   state = {
     show: false,
+    grid:false
   },
   action
 ) {
@@ -8,7 +9,8 @@ export default function (
     case "SHOW_STYLE_BAR": {
       return {
         ...state,
-        show: action.payload,
+        show: action.payload.display,
+        grid:action.payload.grid,
       };
     }
     default:

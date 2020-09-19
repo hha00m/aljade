@@ -78,10 +78,10 @@ export const showSearchBar = (val) => {
     payload: val,
   };
 };
-export const showStyleBarMethod = (val) => {
+export const showStyleBarMethod = (val,val2) => {
   return {
     type: "SHOW_STYLE_BAR",
-    payload: val,
+    payload: {display:val,grid:val2}
   };
 };
 export const searchForInfoMethod = (val) => {

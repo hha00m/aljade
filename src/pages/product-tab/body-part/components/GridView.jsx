@@ -56,10 +56,10 @@ const GridView = (props) => {
               props.activeProductMethod(dataItem);
               props.activeModelMethod(props.modelList[11])}}>
             <img src={`https://shorjashops.com/store/img/product/${dataItem.img}`}
-              style={{ width: '70px', height: '100px' }} alt="" />
-            <View style={{ color: '#888', fontSize: '14px', marginTop: '0px' }}>
+              style={{ width: '125px', height: 'auto' }} alt="" />
+            {/* <View style={{ color: '#888', fontSize: '14px', marginTop: '0px' }}>
               <span>{dataItem.name}</span>
-            </View>
+            </View> */}
           </View>
         )}
       />

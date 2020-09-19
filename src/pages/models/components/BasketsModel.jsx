@@ -32,7 +32,7 @@ class BasketsModel extends React.Component {
                 <Modal
                     popup
                     closable
-                    visible={this.props.ActiveModel.model.name === 'BuyerListMode' && this.props.ActiveModel.action}
+                    visible={this.props.test?this.props.test:this.props.ActiveModel.model.name === 'BuyerListMode' && this.props.ActiveModel.action}
                     onClose={() => this.props.closeModelMethod(this.props.modelList[1])}
                     animationType="slide-up"
                     transparent

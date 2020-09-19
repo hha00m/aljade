@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <View>
             <NavBar />
-            <SearchBar/>
+            {/* <SearchBar/> */}
         </View>
     )
 };

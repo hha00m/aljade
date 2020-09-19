@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { closeModelMethod, activeProductMethod,activeModelMethod } from '../../models/store/actions/index';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import './productDetails.css'
+import BasketsModel from './BasketsModel'
 const Item = List.Item;
 
 const MyAccountModel = (props) => {
@@ -33,7 +34,7 @@ const MyAccountModel = (props) => {
                     style={{ direction: "rtl", textAlign: "center" }}>
                     <Item style={{ height: '450px', width: '100%' }}>
                         <img style={{ width: '100%', height: '100%', borderRadius: '5px' }}
-                            src={`https://aljade.com/store/img/product/${props.activeProduct.product.images[0].path}`} alt="" />
+                            src={`https://shorjashops.com/store/img/product/${props.activeProduct.product.images[0].path}`} alt="" />
                     </Item>
                     <Item style={{textAlign:'center'}} >
                         <h2 > {props.activeProduct.product.price}</h2>

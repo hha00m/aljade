@@ -4,10 +4,9 @@ import Body from './body-part/Body';
 import { View } from "antd-mobile";
 const ProductsTab = () => {
     return (
-        <View >
+        <View>
             <Header />
             <Body />
-        
         </View>
     )
 };

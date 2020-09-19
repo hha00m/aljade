@@ -107,6 +107,7 @@ class Body extends React.Component {
     };
     return (
       <ListView
+      
         ref={el => (this.lv = el)}
         dataSource={this.state.dataSource}
         renderFooter={() => (
