@@ -7,7 +7,7 @@ import { activeModelMethod, } from '../store/actions';
 import { closeModelMethod, } from '../store/actions';
 import {
     cencelSendBasketToDB, fetchingBasketsMethod, deleteBasketsMethod,
-    sendBasketToDB, selectedBasketMethod, addItemToBasket, all_selectedBasketsMethod, fetchingBasketByIDMethod
+    sendBasketToDB, selectedBasketMethod, addItemToBasket, all_selectedBasketsMethod, fetchingBasketByIDMethod,activeBasketsModelMethod
 } from './../store/actions/index';
 import './_style.css';
 const RadioItem = Radio.RadioItem;
@@ -32,8 +32,16 @@ class BasketsModel extends React.Component {
                 <Modal
                     popup
                     closable
-                    visible={this.props.test?this.props.test:this.props.ActiveModel.model.name === 'BuyerListMode' && this.props.ActiveModel.action}
-                    onClose={() => this.props.closeModelMethod(this.props.modelList[1])}
+                    visible={this.props.basketListShow.show ?
+                        this.props.basketListShow.show
+                        : this.props.ActiveModel.model.name === 'BuyerListMode'
+                        && this.props.ActiveModel.action}
+                    onClose={
+                        () => {
+                            this.props.activeBasketsModelMethod(false);
+                            this.props.closeModelMethod(this.props.modelList[1]);
+                        }
+                    }
                     animationType="slide-up"
                     transparent
                     maskClosable={true}
@@ -94,7 +102,7 @@ class BasketsModel extends React.Component {
                                                 },
                                                 style: { backgroundColor: '#108ee9', color: 'white' },
 
-                                            }, 
+                                            },
                                             // {
                                             //     text: 'عرض',
                                             //     onPress: () =>{ 
@@ -123,10 +131,10 @@ class BasketsModel extends React.Component {
                         <List.Item>
 
                             <Button type="ghost" onClick={() => this.props.activeModelMethod(this.props.modelList[2])} style={{ fontSize: '16px' }}> <PlusCircleOutlined style={{ fontSize: '20px', marginLeft: "8px", marginRight: "8px" }} /> اضافة سلة جديدة</Button><WhiteSpace />
- 
+
                             <Button
                                 type="primary" style={{ fontSize: '16px' }}
-                                onClick={()=> this.props.addItemToBasket(
+                                onClick={() => this.props.addItemToBasket(
                                     this.props.user.user.data.username, this.props.user.user.password,
                                     this.props.activeProduct.product.id, this.props.selectedBasket.id, this.props.activeProduct.options.id)
                                 }
@@ -151,6 +159,7 @@ function mapStateToProps(state) {
         selectedBasket: state.selectedBasket,
         activeProduct: state.activeProduct,
         all_selectedBaskets: state.all_selectedBaskets,
+        basketListShow: state.basketListShow,
 
     }
 }
@@ -167,6 +176,7 @@ function matchDispatchToProps(dispatch) {
             addItemToBasket: addItemToBasket,
             all_selectedBasketsMethod: all_selectedBasketsMethod,
             fetchingBasketByIDMethod: fetchingBasketByIDMethod,
+            activeBasketsModelMethod:activeBasketsModelMethod,
         }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(BasketsModel);

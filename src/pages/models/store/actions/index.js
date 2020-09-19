@@ -356,3 +356,11 @@ export const activeProductMethod = (obj = {}, option = {}) => {
     },
   };
 };
+
+
+export const activeBasketsModelMethod = (show = false) => {
+  return {
+    type: "ACTIVE_BASKET_MODEL",
+    payload: show,
+  };
+};

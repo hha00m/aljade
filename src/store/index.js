@@ -8,6 +8,7 @@ import basketById from "../pages/models/store/reducer/FetchBasketById_reducer";
 import productsList from "../pages/product-tab/store/reducer/products-reducer";
 import NewFlagList from "../pages/models/store/reducer/NewFlagList";
 import ModelList from "../pages/models/store/reducer/ModelList";
+import basketListShow from "../pages/models/store/reducer/active-baskets-model-reducer";
 import ActiveModelReducer from "../pages/models/store/reducer/actions-model-reducer";
 import ActiveProductReducer from "../pages/models/store/reducer/active-product-reducer";
 import selectedBasket from "../pages/models/store/reducer/active-basket-reducer";
@@ -40,5 +41,6 @@ const allReducers = combineReducers({
   searchForInfo:searchForInfo,
   showStyleBar:showStyleBar,
   selectedProductGrid:selectedProductGrid,
+  basketListShow:basketListShow,
 });
 export default allReducers;
