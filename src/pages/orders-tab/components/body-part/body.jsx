@@ -12,6 +12,7 @@ const OrdersTab = (props) => {
 
     useEffect(() => {
         props.fetchingOrdersMethods(props.user.user.data.username, props.user.user.password, indexPage, props.orders.orders);
+        
         setIsLoading(false);
         // eslint-disable-next-line
     }, [indexPage])
@@ -134,7 +135,11 @@ const OrdersTab = (props) => {
                 <View
                     onClick={() => onEndReached()}
                     style={{ color: 'blue', textAlign: 'center', fontSize: '18px' }}
-                >تحميل المزيد</View> :
+                >تحميل المزيد
+                <WhiteSpace size='lg'/>
+                <WhiteSpace size='xl'/>
+                <WhiteSpace size='lg'/>
+                </View> :
                 <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
                     <ActivityIndicator size="large" />
                 </View>}

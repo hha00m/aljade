@@ -17,12 +17,30 @@ export function logoutMethod(state) {
 export function singinWithServer(username = "", password = "", logout=false) {
   return function (dispatch) {
     if (logout) {
+      const allKeys = Object.keys(localStorage);
+      const toBeDeleted = allKeys.filter(value => {
+        return !['user','basketsList','CitiesAndTownsListForLocalUseOnly'].includes(value);
+      });
+      toBeDeleted.forEach(value => {
+        localStorage.removeItem(value);
+      });
+
+
       localStorage.removeItem("user");
       dispatch({
         type: "SIGNOUT_FULFILLED",
         payload: { user: "err", isLogout: logout },
       });
     }
+
+    const allKeys = Object.keys(localStorage);
+    const toBeDeleted = allKeys.filter(value => {
+      return !['user','basketsList','CitiesAndTownsListForLocalUseOnly'].includes(value);
+    });
+    toBeDeleted.forEach(value => {
+      localStorage.removeItem(value);
+    });
+    
     let user = localStorage.getItem("user");
     let url = `${API}/_login.php?username=${username}&password=${password}`;
     if (username || user) {

@@ -22,6 +22,9 @@ class Body extends React.Component {
       isLoading: true,
       height: (document.documentElement.clientHeight * 3) / 4,
     };
+
+ 
+ 
   }
   _data = [];
   entered = true;
@@ -54,7 +57,7 @@ class Body extends React.Component {
       this._data = [];
       this.entered = true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
-      this.setState({ ...this.state, search: this.props.searchForInfo.data });
+      this.setState({ ...this.state, search: this.props.searchForInfo.data,isLoading: true });
     }
     if (this.props.products.fetched && !this.props.products.fetching) {
       if (this.entered === undefined) this.entered = true;
@@ -63,16 +66,22 @@ class Body extends React.Component {
   }
   onRefresh = () => {
     if (navigator.onLine) {
-
-      // localStorage.clear();
-      for (let i = 1; i <= pageIndex; i++) {
-        localStorage.removeItem(`productsList:${i}`);
-      }
+      // for (let i = 1; i <= pageIndex; i++) {
+      //   localStorage.removeItem(`productsList:${i}`);
+      // }
+      const allKeys = Object.keys(localStorage);
+      const toBeDeleted = allKeys.filter(value => {
+        return !['user','basketsList','CitiesAndTownsListForLocalUseOnly'].includes(value);
+      });
+      toBeDeleted.forEach(value => {
+        localStorage.removeItem(value);
+      });
+   
       pageIndex = 1;
       this._data = [];
       this.entered = true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
-      this.setState({ ...this.state, search: this.props.searchForInfo.data });
+      this.setState({ ...this.state, search: this.props.searchForInfo.data,isLoading: true });
     } else {
       Toast.offline('لايوجد انترنيت حاول مجددا', 2, null, false);
     }
@@ -110,11 +119,11 @@ class Body extends React.Component {
       
         ref={el => (this.lv = el)}
         dataSource={this.state.dataSource}
-        renderFooter={() => (
-          <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
-            {this.state.isLoading ? <ActivityIndicator size="large" /> : "تم التحميل"}
-          </View>
-        )}
+        // renderFooter={() => (
+        //   <View style={{ width: '100%', height: document.documentElement.clientHeight * 0.1, display: 'flex', justifyContent: 'center' }}>
+        //     {this.state.isLoading ? <ActivityIndicator size="large" /> : "تم التحميل"}
+        //   </View>
+        // )}
         renderRow={row}
         style={{
           height: this.state.height,

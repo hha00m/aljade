@@ -49,6 +49,7 @@ const ProductCard = (props) => {
                 ]}
             >
                 <View style={{ display: 'flex', padding: '10px 0', direction: "rtl" }}>
+                    
                     <img style={{ width: '90px', height: '130px', marginLeft: '5px', borderRadius: '5px' }}
                         src={`https://shorjashops.com/store/img/product/${obj.img}`} alt="" />
                     <View style={{ lineHeight: 1, width: "100%" }} className="flex-container">

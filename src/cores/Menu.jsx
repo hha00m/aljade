@@ -12,7 +12,6 @@ import { singinWithServer, logoutMethod } from './../user/store-singin/actions/a
 import './../user/style.css'
 import { FaBoxes } from 'react-icons/fa'
 import { CommentOutlined, ShoppingCartOutlined, MenuOutlined, AmazonOutlined } from '@ant-design/icons'
-// import {TiMessages} from 'react-icons/ti';
 class Menu extends React.Component {
     constructor(...args) {
         super(...args);
