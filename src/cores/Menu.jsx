@@ -72,6 +72,9 @@ class Menu extends React.Component {
                     </List>
                 </WingBlank>
                 :
+
+
+                
                 <View style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
                     <TabBar
                         unselectedTintColor="#949494"

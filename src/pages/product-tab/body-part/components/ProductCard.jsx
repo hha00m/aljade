@@ -49,26 +49,17 @@ const ProductCard = (props) => {
                 ]}
             >
                 <View style={{ display: 'flex', padding: '10px 0', direction: "rtl" }}>
-                    
-                    <img style={{ width: '90px', height: '130px', marginLeft: '5px', borderRadius: '5px' }}
+
+                    <img style={{ width: '90px', height: '140px', marginLeft: '5px', borderRadius: '5px' }}
                         src={`https://shorjashops.com/store/img/product/${obj.img}`} alt="" />
                     <View style={{ lineHeight: 1, width: "100%" }} className="flex-container">
                         <View style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.name}
-                            {/* <Badge text="شعار"
-                                style={{
-                                    marginRight: '5px',
-                                    padding: '0px  6px',
-                                    backgroundColor: '#f19736',
-                                    borderRadius: 2,
-                                    color: '#fff',
-                                    border: '1px solid #f19736',
-                                }}
-                            /> */}
+
                         </View>
-                        <View style={{ marginBottom: '8px' }}>
+                        {/* <View style={{ marginBottom: '8px' }}>
                             <span style={{ fontSize: '15px', color: '#FF6E27' }}>{obj.store_name}
                             </span>
-                        </View>
+                        </View> */}
                         <Flex justify="between">
                             <span style={{ alignSelf: "flex-end", fontSize: '15px', color: '#000' }} className="inline">{obj.price}</span>
                             <Button type="warning" size="small" inline className="inline"
@@ -77,7 +68,7 @@ const ProductCard = (props) => {
                         </Flex>
                         {obj.attribute.length > 0 ?
                             <View >
-                                <span>{obj.attribute[0].name}:</span>
+                                {/* <span>{obj.attribute[0].name}:</span> */}
                                 {
                                     (obj.attribute).map((v, i) => {
                                         return (
