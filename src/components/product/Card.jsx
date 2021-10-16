@@ -28,7 +28,7 @@ const Card_Jade = (props) => {
                 >
 
                     <div style={{ display: 'flex', padding: '15px 0', direction: "rtl" }}>
-                        <img style={{ height: '150px', marginLeft: '5px' }} src={`https://albarqExpress.com/store/img/product/${obj.img}`} alt="" />
+                        <img style={{ height: '150px', marginLeft: '5px' }} src={`https://aljade.com/store/img/product/${obj.img}`} alt="" />
                         <div style={{ lineHeight: 1, width: "100%" }} className="flex-container">
                             <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.name}</div>
                             <div style={{ marginBottom: '8px' }}>

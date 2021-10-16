@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Flex, Tag, View, WhiteSpace, Button, Modal, List, Toast } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { closeModelMethod, activeProductMethod, activeModelMethod,activeBasketsModelMethod } from '../../models/store/actions/index';
+import { closeModelMethod, activeProductMethod, activeModelMethod, activeBasketsModelMethod } from '../../models/store/actions/index';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import './productDetails.css'
 import BasketsModel from './BasketsModel'
@@ -11,7 +11,7 @@ const Item = List.Item;
 const MyAccountModel = (props) => {
     const onPressedButton = (val) => {
         if (props.activeProduct.product) {
-           props.activeBasketsModelMethod(true);
+            props.activeBasketsModelMethod(true);
             // props.activeModelMethod(val);
         } else
             Toast.info('رجاء اختر خيار قبل الشراء', 2, null, false);
@@ -36,7 +36,7 @@ const MyAccountModel = (props) => {
                         style={{ direction: "rtl", textAlign: "center" }}>
                         <Item style={{ height: '450px', width: '100%' }}>
                             <img style={{ width: '100%', height: '100%', borderRadius: '5px' }}
-                                src={`https://shorjashops.com/store/img/product/${props.activeProduct.product.images[0].path}`} alt="" />
+                                src={`https://aljade.com/store/img/product/${props.activeProduct.product.images[0].path}`} alt="" />
                         </Item>
                         <Item style={{ textAlign: 'center' }} >
                             <h2 > {props.activeProduct.product.price}</h2>
@@ -92,7 +92,7 @@ function matchDispatchToProps(dispatch) {
             closeModelMethod: closeModelMethod,
             activeProductMethod: activeProductMethod,
             activeModelMethod: activeModelMethod,
-            activeBasketsModelMethod:activeBasketsModelMethod,
+            activeBasketsModelMethod: activeBasketsModelMethod,
         }, dispatch);
 }
 export default connect(mapStateToProps, matchDispatchToProps)(MyAccountModel);

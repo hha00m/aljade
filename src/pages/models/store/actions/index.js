@@ -215,7 +215,7 @@ export function removeItemFromBasket(username, password, product, basket) {
 export function clearBasketFromItems() {
   return function (dispatch) {
     let url = `${API}/myBasket/_clearBasket.php?username=07822816693&password=12345678`;
-    // let url = `https://albarqexpress.com/store/api/_getBaskets.php?username=07822816693&password=12345678`;
+    // let url = `https://aljade.com/store/api/_getBaskets.php?username=07822816693&password=12345678`;
     axios
       .get(url)
       .then((response) => {

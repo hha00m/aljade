@@ -7,7 +7,7 @@ export function OrdersList(
   limit = 20,
 ) {
   return function (dispatch) {
-    let url = `https://albarqexpress.com/store/api/?username=${user.username}&
+    let url = `https://aljade.com/store/api/?username=${user.username}&
                 password=${user.password}&page=${pageIndex}&limit=${limit}`;
     if (search) url += `&search=${search}`;
 
@@ -29,7 +29,7 @@ export function productDetails(user, productId) {
   return function (dispatch) {
     axios
       .get(
-        `https://albarqexpress.com/store/api/?username=${user.username}&password=${user.password}&product=${productId}`
+        `https://aljade.com/store/api/?username=${user.username}&password=${user.password}&product=${productId}`
       )
       .then((response) => {
         dispatch({

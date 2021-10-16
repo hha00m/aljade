@@ -8,14 +8,14 @@ import { useEffect } from 'react'
 import './style.css'
 import { useState } from "react";
 import { activeModelMethod, } from '../../../models/store/actions/index';
-import {activeProductMethod} from '../../../models/store/actions/index'
+import { activeProductMethod } from '../../../models/store/actions/index'
 let pageIndex = 1;
 let _data = [];
 
 const GridView = (props) => {
   const [loading, setLoading] = useState(true);
   const _onDataArrived = (newData) => {
-    if (_data.length !== newData.length&&newData.length>0) {
+    if (_data.length !== newData.length && newData.length > 0) {
       _data = newData;
     }
   }
@@ -24,7 +24,7 @@ const GridView = (props) => {
   const onEndReached = event => {
     setLoading(true);
     ++pageIndex;
-    props.fetchingProducts(props.user.user.user.data.username, props.user.user.user.password, props.searchForInfo?props.searchForInfo.data:'', pageIndex, 10, _data, false);
+    props.fetchingProducts(props.user.user.user.data.username, props.user.user.user.password, props.searchForInfo ? props.searchForInfo.data : '', pageIndex, 10, _data, false);
     console.log("reach end", event);
   };
 
@@ -48,14 +48,15 @@ const GridView = (props) => {
         columnNum={3}
         itemStyle={{ height: '200px', background: 'rgba(0,0,0,.05)' }}
         square={false}
-      //  isCarousel 
+        //  isCarousel 
         className="not-square-grid"
         renderItem={dataItem => (
           <View style={{ padding: '0.5px' }}
             onClick={() => {
               props.activeProductMethod(dataItem);
-              props.activeModelMethod(props.modelList[11])}}>
-            <img src={`https://shorjashops.com/store/img/product/${dataItem.img}`}
+              props.activeModelMethod(props.modelList[11])
+            }}>
+            <img src={`https://aljade.com/store/img/product/${dataItem.img}`}
               style={{ width: '125px', height: 'auto' }} alt="" />
             {/* <View style={{ color: '#888', fontSize: '14px', marginTop: '0px' }}>
               <span>{dataItem.name}</span>
@@ -94,7 +95,7 @@ function matchDispatchToProps(dispatch) {
     {
       fetchingProducts: fetchingProductsMethod,
       activeModelMethod: activeModelMethod,
-      activeProductMethod:activeProductMethod
+      activeProductMethod: activeProductMethod
     }, dispatch);
 }
 
