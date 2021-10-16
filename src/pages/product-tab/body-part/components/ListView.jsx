@@ -1,7 +1,7 @@
 /* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { PullToRefresh, ListView, ActivityIndicator, View, Toast } from "antd-mobile";
+import { PullToRefresh, ListView, Toast } from "antd-mobile";
 import { fetchingProductsMethod } from '../../store/actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -23,8 +23,8 @@ class Body extends React.Component {
       height: (document.documentElement.clientHeight * 3) / 4,
     };
 
- 
- 
+
+
   }
   _data = [];
   entered = true;
@@ -57,7 +57,7 @@ class Body extends React.Component {
       this._data = [];
       this.entered = true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
-      this.setState({ ...this.state, search: this.props.searchForInfo.data,isLoading: true });
+      this.setState({ ...this.state, search: this.props.searchForInfo.data, isLoading: true });
     }
     if (this.props.products.fetched && !this.props.products.fetching) {
       if (this.entered === undefined) this.entered = true;
@@ -71,17 +71,17 @@ class Body extends React.Component {
       // }
       const allKeys = Object.keys(localStorage);
       const toBeDeleted = allKeys.filter(value => {
-        return !['user','basketsList','CitiesAndTownsListForLocalUseOnly'].includes(value);
+        return !['user', 'basketsList', 'CitiesAndTownsListForLocalUseOnly'].includes(value);
       });
       toBeDeleted.forEach(value => {
         localStorage.removeItem(value);
       });
-   
+
       pageIndex = 1;
       this._data = [];
       this.entered = true;
       this.props.fetchingProducts(this.props.user.user.user.data.username, this.props.user.user.user.password, this.props.searchForInfo.data, pageIndex, 10, this._data, false);
-      this.setState({ ...this.state, search: this.props.searchForInfo.data,isLoading: true });
+      this.setState({ ...this.state, search: this.props.searchForInfo.data, isLoading: true });
     } else {
       Toast.offline('لايوجد انترنيت حاول مجددا', 2, null, false);
     }
@@ -116,7 +116,7 @@ class Body extends React.Component {
     };
     return (
       <ListView
-      
+
         ref={el => (this.lv = el)}
         dataSource={this.state.dataSource}
         // renderFooter={() => (

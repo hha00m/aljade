@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Flex, Tag, View, WhiteSpace, Button, Modal, List, Toast } from 'antd-mobile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
